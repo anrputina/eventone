@@ -1,20 +1,46 @@
-<section ng-controller="HomeController">
-  <div class="jumbotron text-center">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-12">
-        <img alt="MEAN.JS" class="img-responsive text-center" src="modules/core/client/img/brand/logo.png" />
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <p class="lead">
-        Open-Source Full-Stack Solution For MEAN Applications
-      </p>
-    </div>
-    <div class="row">
-      <p>
-        <a class="btn btn-primary btn-lg" href="" target="_blank">Learn more</a>
-      </p>
-    </div>
+<div ng-controller="MyCarouselController">
+  <div>
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{$index}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </slide>
+    </carousel>
   </div>
+</div>
+
+<section ng-controller="HomeController" ng-init="find()" class="row posts">
+    <div ng-repeat="article in articles" class="col-md-6 col-md-offset-3 post">
+      <header>
+      <div class="row">
+        <div class="col-md-1 margin-user-top">
+          <img ng-src="{{authentication.user.profileImageURL}}" class="header-profile-image"/>
+        </div>
+        <div class="col-md-11 margin-user-top">
+          <span ng-bind="authentication.user.displayName"></span>
+          <a ui-sref="articles.view({articleId: article._id})"><p class="subtitle" ng-bind="article.title"></p></a>
+        </div>
+      </div>
+      </header>
+
+      <article >
+        <img class="img-responsive" src="http://www.lonestardigital.com/EOS_D30/Sample_Pix/D30_Img_3771(400x400_Crop).jpg">
+        <p ng-bind="article.content"></p>
+        <div class="info">
+          <small class="list-group-item-text">
+          Posted on
+          <span ng-bind="article.created | date:'mediumDate'"></span>
+          by
+          <span ng-bind="article.user.displayName"></span>
+          </small>
+        </div>
+        <div class="interaction">
+          <a href="#">Like</a> | 
+          <a href="#">Modify</a>
+        </div>
+      </article>
+    </div>
 </section>
