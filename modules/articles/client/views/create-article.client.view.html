@@ -17,6 +17,18 @@
           <textarea name="content" ng-model="content" id="content" class="form-control" cols="30" rows="10" placeholder="Content"></textarea>
         </div>
         <div class="form-group">
+          <label for="content">Posizione</label>
+          <div class="row">
+            <div class="col-md-4 col-md-offset-1">
+              <textarea name="contentPosX" ng-model="positionX" id="PosX" class="form-control" cols="1" rows="1" placeholder="PosX"></textarea>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-md-4">
+              <textarea name="contentPosY" ng-model="positionY" id="PosY" class="form-control" cols="1" rows="1" placeholder="PosY"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
           <input type="submit" class="btn btn-default">
         </div>
         <div ng-show="error" class="text-danger">

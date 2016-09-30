@@ -15,6 +15,8 @@ exports.create = function (req, res) {
   var article = new Article(req.body);
   article.user = req.user;
 
+  console.log(req.body);
+
   article.save(function (err) {
     if (err) {
       return res.status(400).send({

@@ -14,6 +14,7 @@
 
 <section ng-controller="HomeController" ng-init="find()" class="row posts">
     <div ng-repeat="article in articles" class="col-md-6 col-md-offset-3 post">
+
       <header>
       <div class="row">
         <div class="col-md-1 margin-user-top">
@@ -27,7 +28,7 @@
       </header>
 
       <article >
-        <img class="img-responsive" src="http://www.lonestardigital.com/EOS_D30/Sample_Pix/D30_Img_3771(400x400_Crop).jpg">
+        <img class="img-responsive" src="http://calvarytemplecog.com/App_Themes/Default/img/group_blank.jpg">
         <p ng-bind="article.content"></p>
         <div class="info">
           <small class="list-group-item-text">
@@ -38,8 +39,8 @@
           </small>
         </div>
         <div class="interaction">
-          <a href="#">Like</a> | 
-          <a href="#">Modify</a>
+          <a href="#">Vota</a> | 
+          <a ng-show="authentication.user._id == article.user._id" ui-sref="articles.edit({articleId: article._id})">Modifica</a>
         </div>
       </article>
     </div>

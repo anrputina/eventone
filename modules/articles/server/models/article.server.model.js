@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+  GeoJSON = require('mongoose-geojson-schema'),
   Schema = mongoose.Schema;
 
 /**
@@ -28,7 +29,13 @@ var ArticleSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  position: {
+    type: Array
   }
 });
 
 mongoose.model('Article', ArticleSchema);
+
+
+//AIzaSyB2xSSCJcJruK94PoqpMfATYF9vzS9kIsE
