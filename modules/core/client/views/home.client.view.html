@@ -1,3 +1,11 @@
+<div ng-controller="map-controller">
+  <ng-map center="[-26.6875847,135.0857733]" zoom="4">
+    <div ng-repeat="p in points">
+      <marker icon="{{customIcon}}"  position="{{p.latitude}}, {{p.longitude}}" ></marker>
+    </div>
+  </ng-map>
+</div>
+
 <div ng-controller="MyCarouselController">
   <div>
     <carousel interval="myInterval">
