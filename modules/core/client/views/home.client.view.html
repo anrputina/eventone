@@ -1,12 +1,4 @@
-<div ng-controller="map-controller">
-  <ng-map center="[-26.6875847,135.0857733]" zoom="4">
-    <div ng-repeat="p in points">
-      <marker icon="{{customIcon}}"  position="{{p.latitude}}, {{p.longitude}}" ></marker>
-    </div>
-  </ng-map>
-</div>
-
-<div ng-controller="MyCarouselController">
+<!--<div ng-controller="MyCarouselController">
   <div>
     <carousel interval="myInterval">
       <slide ng-repeat="slide in slides" active="slide.active">
@@ -18,9 +10,16 @@
       </slide>
     </carousel>
   </div>
-</div>
+</div>-->
 
 <section ng-controller="HomeController" ng-init="find()" class="row posts">
+
+  <ng-map center="current-location" zoom="11">
+    <div ng-repeat="article in articles">
+      <marker icon="{{customIcon}}"  position="{{article.position.latitude}}, {{article.position.longitude}}" ></marker>
+    </div>
+  </ng-map>
+
     <div ng-repeat="article in articles" class="col-md-6 col-md-offset-3 post">
 
       <header>

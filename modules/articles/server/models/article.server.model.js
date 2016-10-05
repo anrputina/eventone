@@ -31,11 +31,9 @@ var ArticleSchema = new Schema({
     ref: 'User'
   },
   position: {
-    type: Array
+    latitude: Number,
+    longitude: Number
   }
 });
 
 mongoose.model('Article', ArticleSchema);
-
-
-//AIzaSyB2xSSCJcJruK94PoqpMfATYF9vzS9kIsE

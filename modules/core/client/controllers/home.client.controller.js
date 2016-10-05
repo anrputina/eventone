@@ -9,5 +9,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.find = function () {
       $scope.articles = Articles.query();
     };
+
   }
 ]);
