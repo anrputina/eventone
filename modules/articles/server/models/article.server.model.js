@@ -32,7 +32,12 @@ var ArticleSchema = new Schema({
   },
   position: {
     latitude: Number,
-    longitude: Number
+    longitude: Number,
+    cap: Number
+  },
+  classEvent: {
+    type: String,
+    required: 'L\'evento non può non avere una tipologia'
   }
 });
 

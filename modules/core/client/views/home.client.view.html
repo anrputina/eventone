@@ -14,12 +14,23 @@
 
 <section ng-controller="HomeController" ng-init="find()" class="row posts">
 
-  <ng-map center="current-location" zoom="11">
-    <div ng-repeat="article in articles">
-      <marker icon="{{customIcon}}"  position="{{article.position.latitude}}, {{article.position.longitude}}" ></marker>
+  <ng-map defaul-style="true" center="[45.06, 7.67]">   
     </div>
+    <marker ng-repeat="article in articles" id="article._id" position="{{article.position.latitude}},{{article.position.longitude}}" title="{{article.title}}" on-click="ShowDetail(event, article)" icon="{{getIcon(e,article.classEvent)}}">
+    </marker>
+
+    <info-window id="InfoEventMap">
+      <div ng-non-bindable="">
+        id: {{selectedEvent._id}}<br/>
+        name: {{selectedEvent.title}}<br/>
+        content: {{selectedEvent.content}}<br/>
+        tipologia: {{selectedEvent.classEvent}}<br/>
+        <a href="#" ng-click="">Click</a>
+      </div>
+    </info-window>
   </ng-map>
 
+  <section class="container">
     <div ng-repeat="article in articles" class="col-md-6 col-md-offset-3 post">
 
       <header>
@@ -37,6 +48,7 @@
       <article >
         <img class="img-responsive" src="http://calvarytemplecog.com/App_Themes/Default/img/group_blank.jpg">
         <p ng-bind="article.content"></p>
+        <p ng-bind="article.class"></p>
         <div class="info">
           <small class="list-group-item-text">
           Posted on
@@ -51,4 +63,6 @@
         </div>
       </article>
     </div>
+  </section>
+  
 </section>

@@ -19,7 +19,8 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
       var article = new Articles({
         title: this.title,
         content: this.content,
-        position: { latitude:this.positionX, longitude:this.positionY }
+        position: { latitude:this.positionX, longitude:this.positionY, cap:this.cap },
+        classEvent: this.classe
       });
 
       // Redirect after save

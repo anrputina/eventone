@@ -1,6 +1,12 @@
+######7 October 2016
+1. ClassEvent (type of event) to model added
+2. Cap (position) to model added
+3. Custom Marker-Icon for each event added
+4. Show Info on the map, on-click added 
+
 ######5 October 2016
 1. Google Map Api Added
-  + Centering on your position, zoom 11 (City)
++ Centering on your position, zoom 11 (City)
 2. Events Insert with Location Added
 3. The position of the events is automatically showed on the map with a simple marker
 
