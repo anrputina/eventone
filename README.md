@@ -1,3 +1,10 @@
+######8 October 2016
+1. Created New Branch for tries with Modal
+2. No more InfoWindow but Modals!
+3. ModalController and link between map and modal added
+4. The map covers all the screen
+
+
 ######7 October 2016
 1. ClassEvent (type of event) to model added
 2. Cap (position) to model added

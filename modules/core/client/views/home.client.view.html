@@ -16,21 +16,73 @@
 
   <ng-map defaul-style="true" center="[45.06, 7.67]">   
     </div>
-    <marker ng-repeat="article in articles" id="article._id" position="{{article.position.latitude}},{{article.position.longitude}}" title="{{article.title}}" on-click="ShowDetail(event, article)" icon="{{getIcon(e,article.classEvent)}}">
+    <marker ng-repeat="article in articles" id="article._id" position="{{article.position.latitude}},{{article.position.longitude}}" title="{{article.title}}" on-click="open(article)" icon="{{getIcon(e,article.classEvent)}}">
     </marker>
 
-    <info-window id="InfoEventMap">
+    <!--<info-window id="InfoEventMap">
       <div ng-non-bindable="">
+
+          <div class="InfoEventMapTitle">
+              <img ng-src="{{authentication.user.profileImageURL}}" class="header-profile-image"/>
+              <span ng-bind="authentication.user.displayName"></span>
+              <a ui-sref="selectedEvent.view({articleId: article._id})"><p class="subtitle" ng-bind="selectedEvent.title"></p></a>
+          </div>
+
+          <article>
+
+              <img class="img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Square_200x200.png">
+
+              <p ng-bind="selectedEvent._id"></p>
+              <p ng-bind="selectedEvent.classEvent"></p>
+              <div class="info">
+                <small class="list-group-item-text">
+                Posted on
+                <span ng-bind="selectedEvent.created | date:'mediumDate'"></span>
+                by
+                <span ng-bind="selectedEvent.user.displayName"></span>
+                </small>
+              </div>
+              <div class="interaction">
+                <a href="#">Vota</a> | 
+                <a ng-show="authentication.user._id == article.user._id" ui-sref="articles.edit({articleId: article._id})">Modifica</a>
+              </div>
+
+          </article>
+
+
         id: {{selectedEvent._id}}<br/>
         name: {{selectedEvent.title}}<br/>
         content: {{selectedEvent.content}}<br/>
         tipologia: {{selectedEvent.classEvent}}<br/>
         <a href="#" ng-click="">Click</a>
       </div>
-    </info-window>
+    </info-window>-->
+
+
   </ng-map>
 
-  <section class="container">
+
+<div>
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">{{ item.title }}</h3>
+        </div>
+        <div class="modal-body">
+            <ul>
+                <li ng-repeat="item in items">
+                    <a ng-click="selected.item = item">{{ item }}</a>
+                </li>
+            </ul>
+            Selected: <b>{{ selected.item }}</b>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>
+
+<!--<section class="container">
     <div ng-repeat="article in articles" class="col-md-6 col-md-offset-3 post">
 
       <header>
@@ -63,6 +115,7 @@
         </div>
       </article>
     </div>
-  </section>
+  </section>-->
   
 </section>
+

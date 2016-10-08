@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication','Articles','NgMap',
-  function ($scope, Authentication, Articles, NgMap) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication','Articles','NgMap','$modal',
+  function ($scope, Authentication, Articles, NgMap, $modal, $log) {
   	//Article Part for queries
 
     // This provides Authentication context.
@@ -33,9 +33,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       $scope.map = map;
     });
 
-    $scope.ShowDetail = function (e, detail){
-      console.log(detail);
-      $scope.selectedEvent = detail;
+    $scope.ShowDetail = function (e, event){
+      console.log(event);
+      $scope.selectedEvent = event;
       $scope.map.showInfoWindow('InfoEventMap', this);
     };
 
@@ -50,5 +50,40 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       }
     };
 
+    $scope.open = function (e, event, size) {
+      console.log(event);
+      $scope.selectedEvent = event;
+
+      var modalInstance = $modal.open({
+        templateUrl: 'myModalContent.html',
+        controller: 'ModalInstanceCtrl',
+        size: size,
+        resolve: {
+          item: function () {
+            return event;
+          }
+        }
+      });
+
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      }, function () {
+        console.log('Modal dismissed at: ' + new Date());
+      });
+    };
+
+
   }
 ]);
+
+angular.module('core').controller('ModalInstanceCtrl', function ($scope, $modalInstance, item) {
+  $scope.item = item;
+
+  $scope.ok = function () {
+    $modalInstance.close($scope.selected.item);
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+});
