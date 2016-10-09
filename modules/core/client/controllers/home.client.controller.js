@@ -67,20 +67,19 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
       modalInstance.result.then(function (selectedItem) {
         $scope.selected = selectedItem;
+        console.log(event);
       }, function () {
         console.log('Modal dismissed at: ' + new Date());
       });
     };
-
-
   }
 ]);
 
-angular.module('core').controller('ModalInstanceCtrl', function ($scope, $modalInstance, item) {
+angular.module('core').controller('ModalInstanceCtrl', function ($scope, $modalInstance, item, Authentication) {
   $scope.item = item;
-
+  $scope.authentication = Authentication;
   $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
+    $modalInstance.close();
   };
 
   $scope.cancel = function () {

@@ -60,27 +60,115 @@
 
 
   </ng-map>
-
-
-<div>
-    <script type="text/ng-template" id="myModalContent.html">
+    <!--VERSIONE UNO!!!-->
+    <!--<script type="text/ng-template" id="myModalContent.html">
         <div class="modal-header">
+          <a ui-sref="articles.view({articleId: item._id})">
             <h3 class="modal-title">{{ item.title }}</h3>
+          </a>
         </div>
         <div class="modal-body">
-            <ul>
-                <li ng-repeat="item in items">
-                    <a ng-click="selected.item = item">{{ item }}</a>
-                </li>
-            </ul>
-            Selected: <b>{{ selected.item }}</b>
+
+          <article >
+            <img class="img-responsive" src="http://calvarytemplecog.com/App_Themes/Default/img/group_blank.jpg">
+            <p ng-bind="item.content"></p>
+            <p ng-bind="item.class"></p>
+            <div class="info">
+              <small class="list-group-item-text">
+              Posted on
+              <span ng-bind="item.created | date:'mediumDate'"></span>
+              by
+              <span ng-bind="item.user.displayName"></span>
+              </small>
+            </div>
+            <div class="interaction">
+              <a href="#">Vota</a> | 
+              <a ng-show="authentication.user._id == article.user._id" ui-sref="articles.edit({articleId: article._id})">Modifica</a>
+              Creato da:
+              <p ng-bind="item.user.displayName"></p>
+            </div>
+          </article>
         </div>
         <div class="modal-footer">
             <button class="btn btn-primary" ng-click="ok()">OK</button>
             <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
         </div>
+    </script>-->
+
+
+    <!--VERSIONE due!!!-->
+    <script type="text/ng-template" id="myModalContent.html">
+
+      <div class="modal-header">
+        <section class="post-heading">
+             <div class="row">
+                 <div class="col-md-11">
+                     <div class="media">
+                       <div class="media-left">
+                         <a href="#">
+                           <img class="media-object photo-profile" ng-src="{{ item.user.profileImageURL }}" width="40" height="40" alt="...">
+                         </a>
+                       </div>
+                       <div class="media-body">
+                         <a href="#" class="anchor-username"><h4 class="media-heading">{{ item.user.displayName }}</h4></a> 
+                         <p ng-bind="item.created | date:'mediumDate'"></p>
+                       </div>
+                     </div>
+                 </div>
+                  <div class="col-md-1">
+                      <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+                  </div>
+             </div>             
+        </section>
+      </div>
+
+      <div class="modal-body">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                       <section class="post-body">
+                        <p ng-bind="item.content"></p>
+                       </section>
+                       <section class="post-footer">
+                           <hr>
+                           <div class="post-footer-option container">
+                                <ul class="list-unstyled">
+                                    <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i> Like</a></li>
+                                    <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Comment</a></li>
+                                    <li><a href="#"><i class="glyphicon glyphicon-share-alt"></i> Share</a></li>
+                                </ul>
+                           </div>
+                           <div class="post-footer-comment-wrapper">
+                               <div class="comment-form">
+                                   
+                               </div>
+                               <div class="comment">
+                                    <div class="media">
+                                      <div class="media-left">
+                                        <a href="#">
+                                          <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="32" height="32" alt="...">
+                                        </a>
+                                      </div>
+                                      <div class="media-body">
+                                        <a href="#" class="anchor-username"><h4 class="media-heading">Media heading</h4></a> 
+                                        <a href="#" class="anchor-time">51 mins</a>
+                                      </div>
+                                    </div>
+                               </div>
+                           </div>
+                       </section>
+                    </div>
+                </div>   
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="ok()">OK</button>
+        <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+      </div>
+
     </script>
-</div>
+
+
+
+
 
 <!--<section class="container">
     <div ng-repeat="article in articles" class="col-md-6 col-md-offset-3 post">

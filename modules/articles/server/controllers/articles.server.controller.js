@@ -14,8 +14,9 @@ var path = require('path'),
 exports.create = function (req, res) {
   var article = new Article(req.body);
   article.user = req.user;
-
-  console.log(req.body);
+  
+  //console.log(req.body);
+  //console.log(req.user);
 
   article.save(function (err) {
     if (err) {
@@ -76,7 +77,7 @@ exports.delete = function (req, res) {
  * List of Articles
  */
 exports.list = function (req, res) {
-  Article.find().sort('-created').populate('user', 'displayName').exec(function (err, articles) {
+  Article.find().sort('-created').populate('user', 'displayName profileImageURL').exec(function (err, articles) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)

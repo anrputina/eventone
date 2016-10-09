@@ -1,3 +1,7 @@
+######9 October 2016
+1. Insertion of details into the modal.
+2. Query modified, userImage added
+
 ######8 October 2016
 1. Created New Branch for tries with Modal
 2. No more InfoWindow but Modals!
