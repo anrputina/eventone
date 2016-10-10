@@ -63,6 +63,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
       }
 
       var article = $scope.article;
+      console.log(this.commentNew);
 
       article.$update(function () {
         $location.path('articles/' + article._id);

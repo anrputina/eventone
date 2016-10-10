@@ -38,7 +38,14 @@ var ArticleSchema = new Schema({
   classEvent: {
     type: String,
     required: 'L\'evento non può non avere una tipologia'
-  }
+  },
+  comments: [{
+    content: String,
+    postedBy: {
+      type: Schema.ObjectId,
+      ref: 'User'
+    }
+  }]
 });
 
 mongoose.model('Article', ArticleSchema);

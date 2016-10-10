@@ -57,6 +57,25 @@ exports.update = function (req, res) {
 };
 
 /**
+ *  Insert a comment
+ */
+/*exports.insertComment = function(req, res) {
+  var comment = req.comment;
+  var articleID = req.articleID;
+  comment.user = req.user;
+
+  article.findOneAndUpdate({ '_id':articleID },{ '$push': { 'comments':comment } }, function(err){
+    if(err){
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      res.json(article);
+    }
+  });
+}*/
+
+/**
  * Delete an article
  */
 exports.delete = function (req, res) {
@@ -92,7 +111,6 @@ exports.list = function (req, res) {
  * Article middleware
  */
 exports.articleByID = function (req, res, next, id) {
-
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
       message: 'Article is invalid'

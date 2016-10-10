@@ -19,4 +19,8 @@
     </em>
   </small>
   <p class="lead" ng-bind="article.content"></p>
+
+  <div ng-repeat="comment in article.comments">
+    <p ng-bind="comment.content"></p>
+  </div>
 </section>

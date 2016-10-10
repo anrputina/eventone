@@ -137,25 +137,26 @@
                            </div>
                            <div class="post-footer-comment-wrapper">
                                <div class="comment-form">
-                                   
                                </div>
-                               <div class="comment">
+                               <div class="comment" ng-repeat="comment in item.comments">
                                     <div class="media">
                                       <div class="media-left">
                                         <a href="#">
-                                          <img class="media-object photo-profile" src="http://0.gravatar.com/avatar/38d618563e55e6082adf4c8f8c13f3e4?s=40&d=mm&r=g" width="32" height="32" alt="...">
+                                          <img class="media-object photo-profile" src="{{  }}" width="32" height="32" >
                                         </a>
                                       </div>
                                       <div class="media-body">
-                                        <a href="#" class="anchor-username"><h4 class="media-heading">Media heading</h4></a> 
-                                        <a href="#" class="anchor-time">51 mins</a>
+                                        <a href="#" class="anchor-username"><h5 class="media-heading">{{ comment.postedBy }}</h5></a>
+                                        <span>50 min</span> 
+                                        <p ng-bind="comment.content"></p>
                                       </div>
                                     </div>
                                </div>
                            </div>
                        </section>
                     </div>
-                </div>   
+                </div>
+
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" ng-click="ok()">OK</button>
