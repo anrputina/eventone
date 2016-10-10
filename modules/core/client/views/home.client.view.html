@@ -14,7 +14,7 @@
 
 <section ng-controller="HomeController" ng-init="find()" class="row posts">
 
-  <ng-map defaul-style="true" center="[45.06, 7.67]">   
+  <ng-map defaul-style="false" center="[45.06, 7.67]">   
     </div>
     <marker ng-repeat="article in articles" id="article._id" position="{{article.position.latitude}},{{article.position.longitude}}" title="{{article.title}}" on-click="open(article)" icon="{{getIcon(e,article.classEvent)}}">
     </marker>
@@ -100,26 +100,24 @@
     <script type="text/ng-template" id="myModalContent.html">
 
       <div class="modal-header">
-        <section class="post-heading">
              <div class="row">
                  <div class="col-md-11">
                      <div class="media">
                        <div class="media-left">
                          <a href="#">
-                           <img class="media-object photo-profile" ng-src="{{ item.user.profileImageURL }}" width="40" height="40" alt="...">
+                           <img class="media-object photo-profile" ng-src="{{ item.user.profileImageURL }}" width="40" height="40">
                          </a>
                        </div>
                        <div class="media-body">
-                         <a href="#" class="anchor-username"><h4 class="media-heading">{{ item.user.displayName }}</h4></a> 
-                         <p ng-bind="item.created | date:'mediumDate'"></p>
+                         <a href="#" class="anchor-username"><h4 class="media-heading">{{ item.user.displayName }}</h4></a>
+                         <span ng-bind="item.created | date:'mediumDate'"></span> 
                        </div>
                      </div>
                  </div>
-                  <div class="col-md-1">
+                  <!--<div class="col-md-1">
                       <a href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
-                  </div>
+                  </div>-->
              </div>             
-        </section>
       </div>
 
       <div class="modal-body">
@@ -170,13 +168,13 @@
 
 
 
-<!--<section class="container">
+<section class="container">
     <div ng-repeat="article in articles" class="col-md-6 col-md-offset-3 post">
 
       <header>
       <div class="row">
         <div class="col-md-1 margin-user-top">
-          <img ng-src="{{authentication.user.profileImageURL}}" class="header-profile-image"/>
+          <img ng-src="{{article.user.profileImageURL}}" class="header-profile-image"/>
         </div>
         <div class="col-md-11 margin-user-top">
           <span ng-bind="authentication.user.displayName"></span>
@@ -203,7 +201,7 @@
         </div>
       </article>
     </div>
-  </section>-->
+  </section>
   
 </section>
 
