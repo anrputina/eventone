@@ -63,13 +63,31 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
       }
 
       var article = $scope.article;
-      console.log(this.commentNew);
 
       article.$update(function () {
         $location.path('articles/' + article._id);
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
+    };
+
+    $scope.insertComment = function (isValid) {
+      $scope.error = null;
+
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'articleForm');
+        return false;
+      }
+
+      var article = $scope.article;
+
+      // Create new Article object
+      var newComment = new Articles.comments({
+        text: this.contentNew
+      });
+
+      newComment.$save();
+
     };
 
     // Find a list of Articles

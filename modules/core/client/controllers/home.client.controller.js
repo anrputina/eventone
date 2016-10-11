@@ -78,6 +78,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 angular.module('core').controller('ModalInstanceCtrl', function ($scope, $modalInstance, item, Authentication) {
   $scope.item = item;
   $scope.authentication = Authentication;
+  
   $scope.ok = function () {
     $modalInstance.close();
   };
@@ -85,4 +86,10 @@ angular.module('core').controller('ModalInstanceCtrl', function ($scope, $modalI
   $scope.cancel = function () {
     $modalInstance.dismiss('cancel');
   };
+
+  /*$scope.insertComments = function () {
+    $scope.item.comments = ArticlesComments.post({
+      articleId: $scope.item._id
+    });
+  };*/
 });

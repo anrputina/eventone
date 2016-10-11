@@ -40,6 +40,7 @@ exports.read = function (req, res) {
  * Update a article
  */
 exports.update = function (req, res) {
+  console.log(req.article);
   var article = req.article;
 
   article.title = req.body.title;
@@ -59,8 +60,11 @@ exports.update = function (req, res) {
 /**
  *  Insert a comment
  */
-/*exports.insertComment = function(req, res) {
-  var comment = req.comment;
+exports.createComment = function(req, res) {
+  console.log('here!');
+  console.log(req);
+  return 'ok';
+  /*var comment = req.comment;
   var articleID = req.articleID;
   comment.user = req.user;
 
@@ -72,8 +76,8 @@ exports.update = function (req, res) {
     } else {
       res.json(article);
     }
-  });
-}*/
+  });*/
+};
 
 /**
  * Delete an article

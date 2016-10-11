@@ -18,6 +18,13 @@ module.exports = function (app) {
     .put(articles.update)
     .delete(articles.delete);
 
+  // Comments articles routes
+  app.route('/api/articles/:articleId/comments').all(articlesPolicy.isAllowed)
+    //.get(articles.readComment)
+    .post(articles.createComment);
+    //.put(articles.updateComment)
+    //.delete(articles.deleteComment);
+
   // Finish by binding the article middleware
   app.param('articleId', articles.articleByID);
 };
