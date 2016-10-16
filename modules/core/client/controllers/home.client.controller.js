@@ -75,7 +75,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
   }
 ]);
 
-angular.module('core').controller('ModalInstanceCtrl', function ($scope, $modalInstance, item, Authentication) {
+angular.module('core').controller('ModalInstanceCtrl', function ($scope, $modalInstance, item, Authentication, ArticlesComments) {
   $scope.item = item;
   $scope.authentication = Authentication;
   
@@ -87,9 +87,21 @@ angular.module('core').controller('ModalInstanceCtrl', function ($scope, $modalI
     $modalInstance.dismiss('cancel');
   };
 
-  /*$scope.insertComments = function () {
-    $scope.item.comments = ArticlesComments.post({
-      articleId: $scope.item._id
+  $scope.insertComments = function(){
+
+    $scope.error = null;
+
+    var comment = new ArticlesComments ({
+      titolo: 'qualcosa',
+      contenuto: 'di nuovo'
     });
-  };*/
+
+    comment.$save({ articleId:$scope.item._id },
+      function(response){
+        console.log(response);
+      });
+
+    //$scope.$digest();
+       
+  };
 });

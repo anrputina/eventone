@@ -1,3 +1,7 @@
+######10 October 2016
+1. Added factory $resource for comments
+2. The server saves the comment into the database
+
 ######9 October 2016
 1. Insertion of details into the modal.
 2. Query modified, userImage added

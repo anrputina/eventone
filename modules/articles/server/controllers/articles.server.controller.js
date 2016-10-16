@@ -61,22 +61,23 @@ exports.update = function (req, res) {
  *  Insert a comment
  */
 exports.createComment = function(req, res) {
-  console.log('here!');
-  console.log(req);
-  return 'ok';
-  /*var comment = req.comment;
-  var articleID = req.articleID;
-  comment.user = req.user;
+  //console.log('here!');
+  //console.log(req.params.articleId);
+  //console.log(req.body);
+  var comment = {
+    content: req.body.contenuto,
+    postedBy: req.user
+  };
 
-  article.findOneAndUpdate({ '_id':articleID },{ '$push': { 'comments':comment } }, function(err){
+  Article.findOneAndUpdate({ '_id':req.params.articleId },{ '$push': { 'comments':comment } }, function(err){
     if(err){
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(article);
+      res.json('ok');
     }
-  });*/
+  });
 };
 
 /**
