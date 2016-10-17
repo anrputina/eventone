@@ -1,4 +1,9 @@
-######10 October 2016
+######18 October 2016
+1. Added style to modal
+2. Added same style also to the wall
+3. Clean the code
+
+######17 October 2016
 1. Added factory $resource for comments
 2. The server saves the comment into the database
 
@@ -11,7 +16,6 @@
 2. No more InfoWindow but Modals!
 3. ModalController and link between map and modal added
 4. The map covers all the screen
-
 
 ######7 October 2016
 1. ClassEvent (type of event) to model added

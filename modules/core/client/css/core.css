@@ -1,5 +1,7 @@
 body{
-  background-color:#eaeaea;
+background-color: #fcfcfc;
+background-image: url("https://www.transparenttextures.com/patterns/cream-pixels.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 .content {
   margin-top: 50px;
@@ -107,7 +109,8 @@ body{
 }
 
 .photo-profile{
-    border:1px solid #DDD;    
+    border:1px solid #DDD; 
+    border-radius: 50%;   
 }
 
 .anchor-username h4{
