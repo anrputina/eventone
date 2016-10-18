@@ -1,3 +1,6 @@
+######19 October 2016
+1. Added ngSticky => Stick the map on top
+
 ######18 October 2016
 1. Added style to modal
 2. Added same style also to the wall

@@ -14,7 +14,7 @@
 
 <section ng-controller="HomeController" ng-init="find()">
 
-  <ng-map  defaul-style="false" center="[45.06, 7.67]">   
+  <ng-map sticky offset="50" defaul-style="false" center="[45.06, 7.67]">   
     <marker ng-repeat="article in articles" id="article._id" position="{{article.position.latitude}},{{article.position.longitude}}" title="{{article.title}}" on-click="open(article)" icon="{{getIcon(e,article.classEvent)}}">
     </marker>
   </ng-map>
@@ -211,9 +211,9 @@
       </div>
 
     </div>
-  </section></div>
+  </section>
+</div>
 
 
   
 </section>
-
