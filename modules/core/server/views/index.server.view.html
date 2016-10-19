@@ -1,5 +1,9 @@
 {% extends 'layout.server.view.html' %}
 
 {% block content %}
-  <section ui-view></section>
+	<div class='container'>
+	  <section ui-view></section>
+	</div>
+  
+    <section ui-view='home'></section>
 {% endblock %}

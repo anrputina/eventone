@@ -1,5 +1,6 @@
 ######19 October 2016
 1. Added ngSticky => Stick the map on top
+2. Restyling of home. Smaller blocks
 
 ######18 October 2016
 1. Added style to modal

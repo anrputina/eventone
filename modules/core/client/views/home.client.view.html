@@ -14,7 +14,7 @@
 
 <section ng-controller="HomeController" ng-init="find()">
 
-  <ng-map sticky offset="50" defaul-style="false" center="[45.06, 7.67]">   
+  <ng-map defaul-style="false" center="[45.06, 7.67]">   
     <marker ng-repeat="article in articles" id="article._id" position="{{article.position.latitude}},{{article.position.longitude}}" title="{{article.title}}" on-click="open(article)" icon="{{getIcon(e,article.classEvent)}}">
     </marker>
   </ng-map>
@@ -156,62 +156,65 @@
     </script>
 
 <div class="container">
-  <section class="container col-sm-6 col-sm-offset-3" style="padding-top: 20px">
-    <div ng-repeat="article in articles">
-      <div class="panel panel-default">
+  <div class="row">
+    <section class="" style="padding-top: 20px">
+      <div ng-repeat="article in articles" class="col-sm-4">
+        <div class="panel panel-default">
 
-        <div class="panel-heading">
-          <div class="media">
-             <div class="media-left">
-                 <img class="media-object photo-profile" ng-src="{{ article.user.profileImageURL }}" width="40" height="40">
-             </div>
-             <div class="media-body">
-               <h4 class="media-heading anchor-username" ng-bind="article.user.displayName"></h4>
-               <span ng-bind="article.created | date:'medium'"></span> 
-             </div>
+          <div class="panel-heading">
+            <div class="media">
+               <div class="media-left">
+                   <img class="media-object photo-profile" ng-src="{{ article.user.profileImageURL }}" width="40" height="40">
+               </div>
+               <div class="media-body">
+                 <h4 class="media-heading anchor-username" ng-bind="article.user.displayName"></h4>
+                 <span ng-bind="article.created | date:'medium'"></span> 
+               </div>
+            </div>
+          </div>
+
+          <div class="panel-body">
+           <section class="post-body">
+            <img src="http://www.universidadholistica.com.mx/img/slider/img3.jpg" class="img-responsive">
+            <p class="text-justify">{{ article.content | limitTo: 278 }} ...  <a href="#" class="">leggi di più</a> </p>
+            
+           </section>
+
+           <section class="post-footer">
+               <hr>
+               <div class="post-footer-option container">
+                    <ul class="list-unstyled">
+                        <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i> Vota</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Commenta</a></li>
+                        <li><a href="#"><i class="glyphicon glyphicon-share-alt"></i> Condividi</a></li>
+                    </ul>
+               </div>
+               <div class="post-footer-comment-wrapper">
+                   <div class="comment-form">
+                     <div class="comment" ng-repeat="comment in item.comments">
+                          <div class="media">
+                            <div class="media-left">
+                              <a href="#">
+                                <img class="media-object photo-profile" src="{{  }}" width="32" height="32" >
+                              </a>
+                            </div>
+                            <div class="media-body">
+                              <a href="#" class="anchor-username"><h5 class="media-heading">{{ comment.postedBy }}</h5></a>
+                              <span>50 min</span> 
+                              <p ng-bind="comment.content"></p>
+                            </div>
+                          </div>
+                     </div>
+                   </div>
+               </div>
+           </section>
+
           </div>
         </div>
 
-        <div class="panel-body">
-         <section class="post-body">
-          <img src="http://www.universidadholistica.com.mx/img/slider/img3.jpg" class="img-responsive">
-          <p ng-bind="article.content" class="text-justify"></p>
-         </section>
-
-         <section class="post-footer">
-             <hr>
-             <div class="post-footer-option container">
-                  <ul class="list-unstyled">
-                      <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i> Vota</a></li>
-                      <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Commenta</a></li>
-                      <li><a href="#"><i class="glyphicon glyphicon-share-alt"></i> Condividi</a></li>
-                  </ul>
-             </div>
-             <div class="post-footer-comment-wrapper">
-                 <div class="comment-form">
-                   <div class="comment" ng-repeat="comment in item.comments">
-                        <div class="media">
-                          <div class="media-left">
-                            <a href="#">
-                              <img class="media-object photo-profile" src="{{  }}" width="32" height="32" >
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <a href="#" class="anchor-username"><h5 class="media-heading">{{ comment.postedBy }}</h5></a>
-                            <span>50 min</span> 
-                            <p ng-bind="comment.content"></p>
-                          </div>
-                        </div>
-                   </div>
-                 </div>
-             </div>
-         </section>
-
-        </div>
       </div>
-
-    </div>
-  </section>
+    </section>
+  </div>
 </div>
 
 
