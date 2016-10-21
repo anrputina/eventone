@@ -176,8 +176,15 @@
           <div class="panel-body">
            <section class="post-body">
             <img src="http://www.universidadholistica.com.mx/img/slider/img3.jpg" class="img-responsive">
-            <p class="text-justify">{{ article.content | limitTo: 278 }} ...  <a href="#" class="">leggi di più</a> </p>
-            
+            <!--<p class="text-justify">{{ article.content | limitTo: 278 }} ...  <a href="#" class="">leggi di più</a> </p>-->
+            <hm-read-more
+            hm-text="{{ article.content }}" 
+            hm-limit="280" 
+            hm-more-text="leggi di più" 
+            hm-less-text="leggi di meno"
+            hm-dots-class="dots"
+            hm-link-class="links">
+            </hm-read-more>
            </section>
 
            <section class="post-footer">
@@ -185,21 +192,22 @@
                <div class="post-footer-option container">
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="glyphicon glyphicon-star-empty"></i> Vota</a></li>
-                        <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Commenta</a></li>
+                        <li><a href="#" ng-click="show = !show"><i class="glyphicon glyphicon-comment"></i> Commenti({{ article.comments.length }})</a></li>
                         <li><a href="#"><i class="glyphicon glyphicon-share-alt"></i> Condividi</a></li>
                     </ul>
                </div>
-               <div class="post-footer-comment-wrapper">
+
+               <div class="post-footer-comment-wrapper" ng-show='show'>
                    <div class="comment-form">
-                     <div class="comment" ng-repeat="comment in item.comments">
+                     <div class="comment" ng-repeat="comment in article.comments">
                           <div class="media">
                             <div class="media-left">
                               <a href="#">
-                                <img class="media-object photo-profile" src="{{  }}" width="32" height="32" >
+                                <img class="media-object photo-profile" src="{{ comment.postedBy.profileImageURL }}" width="32" height="32" >
                               </a>
                             </div>
                             <div class="media-body">
-                              <a href="#" class="anchor-username"><h5 class="media-heading">{{ comment.postedBy }}</h5></a>
+                              <a href="#" class="anchor-username"><h5 class="media-heading">{{ comment.postedBy.displayName }}</h5></a>
                               <span>50 min</span> 
                               <p ng-bind="comment.content"></p>
                             </div>

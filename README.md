@@ -1,3 +1,7 @@
+######22 October 2016
+1. Show more into events (and show less)
+2. Show comments
+
 ######19 October 2016
 1. Added ngSticky => Stick the map on top
 2. Restyling of home. Smaller blocks

@@ -61,9 +61,7 @@ exports.update = function (req, res) {
  *  Insert a comment
  */
 exports.createComment = function(req, res) {
-  //console.log('here!');
-  //console.log(req.params.articleId);
-  //console.log(req.body);
+
   var comment = {
     content: req.body.contenuto,
     postedBy: req.user
@@ -75,7 +73,7 @@ exports.createComment = function(req, res) {
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json('ok');
+      res.json(comment);
     }
   });
 };
